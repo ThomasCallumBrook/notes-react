@@ -5,22 +5,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import NoteList from './NoteList'
+import Note from './Note'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
-
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: PropTypes.string
+class App extends React.Component{
+  render(){
+    return(
+      <div id= 'page'>
+        <NoteList />
+        <Note />
+      </div>
+    )
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="World" />,
-    document.body.appendChild(document.createElement('div')),
+    <App />,
+    document.querySelector('#app'),
   )
 })
