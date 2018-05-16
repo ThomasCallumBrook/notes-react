@@ -16,18 +16,9 @@ class NoteForm extends React.Component {
     })
   }
 
-  postNote = () => {
-    this.props.addNote(this.state)
-    let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    fetch('/notes.json', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': token,
-      },
-      body: JSON.stringify(this.state)
-    })
+  handlePostNote= () => {
+    let data = this.state;
+    this.props.postNote(data);
     this.setState({
       title: '',
       content: '',
@@ -48,7 +39,7 @@ class NoteForm extends React.Component {
           value = {this.state.tags}
           onChange = {this.handleNoteInput}/>
         <button className="note-btn"
-          onClick = {this.postNote}>Add Note</button>
+          onClick = {this.handlePostNote}>Add Note</button>
         <textarea className="note-input"
           name="content"
           placeholder="Write your note here..."

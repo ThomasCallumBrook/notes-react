@@ -4,17 +4,9 @@ class NoteSummary extends React.Component{
   handleNoteClick = (event) => {
     console.log("clicked");
   }
-  deleteNoteDB = (event) => {
+  deleteNoteDB = () => {
     console.log(this.props.id);
-    let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    fetch(`/notes/${this.props.id}.json`, {
-      method: 'DELETE',
-      credentials: 'include',
-      headers: {
-        'X-CSRF-Token': token,
-      },
-    })
-    this.props.removeNote(this.props.id);
+    this.props.deleteNote(this.props.id);
   }
   render(){
     return(
