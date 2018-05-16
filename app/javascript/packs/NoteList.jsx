@@ -16,6 +16,7 @@ class NoteList extends React.Component{
       .then(json => this.setState({ notes:json }));
 
   }
+
   addNote = (note) => {
     //Add note to the notes array
     const previousNotes = this.state.notes;
@@ -24,27 +25,29 @@ class NoteList extends React.Component{
       notes:  previousNotes
     })
   }
-  render(){
-    var summaries = this.state.notes.map((note, i) => {
-      return <NoteSummary title={note.title} content={note.content} tags={note.tags} key={i}/>
+  removeNote = (id) => {
+    const previousNotes = this.state.notes;
+    for(var i=0; i < previousNotes.length; i++){
+      if(id === previousNotes[i].id){
+        previousNotes.splice(i, 1);
+      }
+    }
+    this.setState({
+      notes:  previousNotes
     })
+  }
+
+  render(){
     return(
         <div id="note-list">
-          <div>
-            <NoteForm addNote = {this.addNote}/>
-          </div>
-          {
-            this.state.notes.map((note, i) => {
+          {this.state.notes.map((note) => {
               return (
-                <NoteSummary title={note.title} content={note.content} tags={note.tags} key={i}/>
+                <NoteSummary title={note.title} content={note.content} tags={note.tags} key={note.id} id={note.id} removeNote={this.removeNote}/>
               )
             })
           }
         </div>
     )
-  }
-  onNoteClicked(){
-    
   }
 
 }

@@ -15,6 +15,7 @@ class NoteForm extends React.Component {
       [event.target.name]: event.target.value, //Form input value
     })
   }
+
   postNote = () => {
     this.props.addNote(this.state)
     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -41,11 +42,6 @@ class NoteForm extends React.Component {
           placeholder="Note Title..."
           value = {this.state.title}
           onChange = {this.handleNoteInput}/>
-        <input className="note-input"
-          name="content"
-          placeholder="Write your note here..."
-          value = {this.state.content}
-          onChange = {this.handleNoteInput}/>
         <input className="note-tags"
           name="tags"
           placeholder="Add some tags..."
@@ -53,6 +49,12 @@ class NoteForm extends React.Component {
           onChange = {this.handleNoteInput}/>
         <button className="note-btn"
           onClick = {this.postNote}>Add Note</button>
+        <textarea className="note-input"
+          name="content"
+          placeholder="Write your note here..."
+          value = {this.state.content}
+          onChange = {this.handleNoteInput}/>
+
 
       </div>
      )
