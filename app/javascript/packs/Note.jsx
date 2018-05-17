@@ -1,5 +1,6 @@
 import React from 'react'
 import NoteForm from './NoteForm'
+import CurrentNote from './CurrentNote'
 
 class Note extends React.Component{
   constructor(props){
@@ -8,12 +9,9 @@ class Note extends React.Component{
   render(){
     return(
       <div>
-        <div id = "note">
-          This is a Note
-        </div>
+        <CurrentNote currentNote={this.props.currentNote}/>
         <div id='new-note-form'>
-          <NoteForm
-            postNote = {this.props.postNote}/>
+          <NoteForm postNote = {this.props.postNote}/>
         </div>
       </div>
     )

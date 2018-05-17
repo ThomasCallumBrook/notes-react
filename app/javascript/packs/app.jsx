@@ -14,6 +14,10 @@ class App extends React.Component{
     super(props)
     this.state = {
       notes: [],
+      currentNote: {
+        title: "Click Note",
+        tags: " ",
+      },
     }
   }
   componentDidMount() {
@@ -64,15 +68,28 @@ class App extends React.Component{
       notes:  previousNotes
     })
   }
-
+  currentNote = (id) => {
+    const previousNotes = this.state.notes;
+    for(var i=0; i < previousNotes.length; i++){
+      if(id === previousNotes[i].id){
+        console.log(previousNotes[i])
+        this.setState({
+          currentNote: previousNotes[i]
+        })
+      }
+    }
+    console.log(this.state.currentNote)
+  }
   render(){
     return(
       <div id= 'page'>
         <NoteList
           notes={this.state.notes}
           deleteNote={this.deleteNote}
+          currentNote={this.currentNote}
         />
         <Note
+          currentNote={this.state.currentNote}
           postNote={this.postNote}
         />
       </div>

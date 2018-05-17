@@ -1,10 +1,10 @@
 import React from 'react'
 
 class NoteSummary extends React.Component{
-  handleNoteClick = (event) => {
-    console.log("clicked");
+  handleNoteClick = () => {
+    this.props.currentNote(this.props.id);
   }
-  deleteNoteDB = () => {
+  handleDeleteNote = () => {
     console.log(this.props.id);
     this.props.deleteNote(this.props.id);
   }
@@ -17,7 +17,7 @@ class NoteSummary extends React.Component{
           <p>Tags: <em>{this.props.tags.slice(0,30)}</em></p>
         </div>
         <div>
-          <button className="delete-btn" onClick={this.deleteNoteDB}>&times;</button>
+          <button className="delete-btn" onClick={this.handleDeleteNote}>&times;</button>
         </div>
       </div>
     )

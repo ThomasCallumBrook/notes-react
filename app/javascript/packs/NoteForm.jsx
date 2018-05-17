@@ -28,25 +28,23 @@ class NoteForm extends React.Component {
   render(){
     return(
       <div className="form-wrapper">
-        <input className="note-title"
+        <input className="note-form-title"
           name="title"
           placeholder="Note Title..."
           value = {this.state.title}
           onChange = {this.handleNoteInput}/>
-        <input className="note-tags"
+        <input className="note-form-tags"
           name="tags"
           placeholder="Add some tags..."
           value = {this.state.tags}
           onChange = {this.handleNoteInput}/>
         <button className="note-btn"
           onClick = {this.handlePostNote}>Add Note</button>
-        <textarea className="note-input"
+        <textarea className="note-form-input"
           name="content"
           placeholder="Write your note here..."
           value = {this.state.content}
           onChange = {this.handleNoteInput}/>
-
-
       </div>
      )
   }
