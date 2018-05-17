@@ -9,7 +9,10 @@ class Note extends React.Component{
   render(){
     return(
       <div>
-        <CurrentNote currentNote={this.props.currentNote}/>
+        <CurrentNote
+          currentNote={this.props.currentNote}
+          updateNote={this.props.updateNote}
+        />
         <div id='new-note-form'>
           <NoteForm postNote = {this.props.postNote}/>
         </div>

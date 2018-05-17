@@ -57,6 +57,21 @@ class App extends React.Component{
     })
     this.removeNote(id);
   }
+  updateNote = (data, id) => {
+    let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    fetch(`/notes/${id}.json`, {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': token,
+      },
+      body: JSON.stringify(data)
+    })
+  }
+  saveNote = () => {
+
+  }
   removeNote = (id) => {
     const previousNotes = this.state.notes;
     for(var i=0; i < previousNotes.length; i++){
@@ -91,6 +106,7 @@ class App extends React.Component{
         <Note
           currentNote={this.state.currentNote}
           postNote={this.postNote}
+          updateNote={this.updateNote}
         />
       </div>
     )
