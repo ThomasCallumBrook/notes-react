@@ -15,8 +15,9 @@ class App extends React.Component{
     this.state = {
       notes: [],
       currentNote: {
-        title: "Click Note",
-        tags: " ",
+        title: "Create Note",
+        tags: "Add some tags",
+        content: "Add content here"
       },
     }
   }
@@ -113,6 +114,7 @@ class App extends React.Component{
           currentNote={this.currentNote}
         />
         <Note
+          {...this.state.currentNote}
           currentNote={this.state.currentNote}
           postNote={this.postNote}
           updateNote={this.updateNote}

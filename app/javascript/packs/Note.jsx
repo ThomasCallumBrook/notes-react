@@ -3,14 +3,9 @@ import React from 'react'
 class Note extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      title: 'Create Note',
-      content: 'Your Content Here',
-      tags: 'Enter Tags',
-    };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState){
+  static getDerivedStateFromProps(nextProps){
     console.log(nextProps)
     return {...nextProps};
   }
