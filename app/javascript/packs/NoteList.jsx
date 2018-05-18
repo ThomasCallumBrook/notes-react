@@ -1,6 +1,5 @@
 import React from 'react'
 import NoteSummary from './NoteSummary'
-import NoteForm from './NoteForm'
 
 
 class NoteList extends React.Component{
@@ -9,7 +8,7 @@ class NoteList extends React.Component{
   }
   render(){
     return(
-        <div id="note-list" >
+        <div id="note-list"   >
           {this.props.notes.map((note) => {
               return (
                 <NoteSummary {...note} key={note.id}

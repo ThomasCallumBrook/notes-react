@@ -2,6 +2,7 @@ import React from 'react'
 
 class NoteSummary extends React.Component{
   handleNoteClick = () => {
+    console.log('click')
     this.props.currentNote(this.props.id);
   }
   handleDeleteNote = () => {

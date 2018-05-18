@@ -6,10 +6,9 @@
 #page{
   display: grid;
   grid-template-columns: 250px auto;
-  grid-template-rows: 80vh 20vh;
+  grid-template-rows: 100vh;
   grid-template-areas:
-  "NoteList NoteArea"
-  "NoteList NewNote";
+  "NoteList NoteArea";
   position: absolute;
   height:100vh;
   width: 100vw;
@@ -24,9 +23,7 @@
   height: 100vh;
   padding-right: 100px
 }
-::-webkit-scrollbar {
-    display: none;
-}
+
 .noteSummary{
   background-color: #801515;
   margin:10px 10px;
@@ -83,10 +80,10 @@ input {
   overflow: auto;
   overflow-x: hidden;
   width: calc(100vw - 260px);
-  height: calc(100vh - 200px);
+  height: 100vh;
   display:grid;
   grid-template-columns: 90% 10%;
-  grid-template-rows: 100px auto auto auto;
+  grid-template-rows: 100px 35px calc(100vh - 185px) 50px;
   grid-template-areas:
   "Title Title"
   "Tags Tags"
@@ -130,7 +127,7 @@ input {
 }
 .btn{
   grid-area: Save;
-  align-self: center;
+  align-self: start;
   justify-self: start;
   height: 40px;
   width:60px;
