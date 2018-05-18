@@ -19,14 +19,18 @@
   grid-area: NoteList;
   background-color: #AA3939;
   color: #FFAAAA;
-  overflow: auto;
+  overflow-y: scroll;
   width: 250px;
   height: 100vh;
-
+  padding-right: 100px
+}
+::-webkit-scrollbar {
+    display: none;
 }
 .noteSummary{
   background-color: #801515;
-  margin:10px 5px;
+  margin:10px 10px;
+  margin-right: 0;
   padding: 5px;
   border-radius: 5px;
   .child{
@@ -77,19 +81,22 @@ input {
   background-color: #550000;
   color: #D46A6A;
   overflow: auto;
-  width:auto;
+  overflow-x: hidden;
+  width: calc(100vw - 260px);
   height: calc(100vh - 200px);
   display:grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 100px auto auto;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100px auto auto auto;
   grid-template-areas:
-  "Title"
-  "Tags"
-  "Content";
+  "Title Title"
+  "Tags Tags"
+  "Content Content"
+  "New Save";
 }
 .current{
-  background: none;
+  background-color: rgba(255,255,255,0.1);
   border:none;
+  border-radius: 5px;
   color:inherit;
 }
 #note-title{
@@ -119,4 +126,21 @@ input {
   overflow: visible;
   resize: none;
   padding: 5px;
+  padding-right: 100px;
+}
+.btn{
+  grid-area: Save;
+  align-self: center;
+  justify-self: start;
+  height: 40px;
+  width:60px;
+  position: relative;
+  margin-right: 10px;
+  &:hover{
+    color: orange;
+  }
+}
+.new{
+  grid-area: New;
+  justify-self: end;
 }

@@ -9,7 +9,7 @@ class NoteList extends React.Component{
   }
   render(){
     return(
-        <div id="note-list" key="NoteList">
+        <div id="note-list" >
           {this.props.notes.map((note) => {
               return (
                 <NoteSummary {...note} key={note.id}

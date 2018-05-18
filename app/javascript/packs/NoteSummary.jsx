@@ -12,7 +12,7 @@ class NoteSummary extends React.Component{
     return(
       <div className ="noteSummary">
         <div className="child" onClick = {this.handleNoteClick}>
-          <h3> {this.props.title}</h3>
+          <h3> {this.props.title.slice(0,20)}</h3>
           <p>{this.props.content.slice(0,30)}...</p>
           <p>Tags: <em>{this.props.tags.slice(0,30)}</em></p>
         </div>

@@ -6,12 +6,17 @@ class Note extends React.Component{
   constructor(props){
     super(props)
   }
+  static getDerivedStateFromProps(props){
+    return props;
+  }
   render(){
     return(
       <div>
         <CurrentNote
-          currentNote={this.props.currentNote}
+          {...this.state.currentNote}
+          currentNote={this.state.currentNote}
           updateNote={this.props.updateNote}
+          postNote = {this.props.postNote}
         />
         <div id='new-note-form'>
           <NoteForm postNote = {this.props.postNote}/>

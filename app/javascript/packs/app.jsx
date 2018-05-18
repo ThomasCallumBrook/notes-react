@@ -68,9 +68,20 @@ class App extends React.Component{
       },
       body: JSON.stringify(data)
     })
+    this.updateSumaries(data, id)
   }
-  saveNote = () => {
-
+  updateSumaries = (data, id) => {
+    const previousNotes = this.state.notes;
+    for(var i=0; i < previousNotes.length; i++){
+      if(id === previousNotes[i].id){
+        previousNotes[i].title= data.title
+        previousNotes[i].content= data.content
+        previousNotes[i].tags= data.tags
+      }
+    }
+    this.setState({
+      notes: previousNotes
+    })
   }
   removeNote = (id) => {
     const previousNotes = this.state.notes;
@@ -87,13 +98,11 @@ class App extends React.Component{
     const previousNotes = this.state.notes;
     for(var i=0; i < previousNotes.length; i++){
       if(id === previousNotes[i].id){
-        console.log(previousNotes[i])
         this.setState({
           currentNote: previousNotes[i]
         })
       }
     }
-    console.log(this.state.currentNote)
   }
   render(){
     return(
