@@ -91,7 +91,7 @@ input {
   "New Save";
 }
 .current{
-  background-color: rgba(255,255,255,0.1);
+  background: none;
   border:none;
   border-radius: 5px;
   color:inherit;
@@ -103,7 +103,10 @@ input {
   align-self: center;
   text-align: center;
   width: calc(100vw - 290px);
+  &:hover{
+    background-color: rgba(255,255,255,0.2)
   }
+}
 #note-tags{
   grid-area: Tags;
   margin: 10px 40px;
@@ -112,6 +115,9 @@ input {
   font-style: italic;
   align-self: start;
   width: calc(100vw - 330px);
+  &:hover{
+    background-color: rgba(255,255,255,0.2)
+  }
 }
 #note-content{
   grid-area: Content;
@@ -124,6 +130,9 @@ input {
   resize: none;
   padding: 5px;
   padding-right: 100px;
+  &:hover{
+    background-color: rgba(255,255,255,0.2)
+  }
 }
 .btn{
   grid-area: Save;
