@@ -6,7 +6,6 @@ class Note extends React.Component{
   }
 
   static getDerivedStateFromProps(nextProps){
-    console.log(nextProps)
     return {...nextProps};
   }
 
@@ -16,7 +15,6 @@ class Note extends React.Component{
     })
   }
   save = () =>{
-    console.log('save')
     let id = this.state.id
     let data = this.state;
     if(this.props.currentNote.id){

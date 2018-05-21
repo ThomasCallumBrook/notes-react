@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoteList should render as expected 1`] = `
+<div
+  id="note-list"
+>
+  <NoteSummary
+    content="What a wonderful React Monday"
+    id={1}
+    key="1"
+    tags="learning"
+    title="Note A"
+  />
+  <NoteSummary
+    content="What a wonderful React Tuesday"
+    id={2}
+    key="2"
+    tags="learning"
+    title="Note B"
+  />
+</div>
+`;

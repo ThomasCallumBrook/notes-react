@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note Summary should render as expected 1`] = `
+<div
+  className="noteSummary"
+>
+  <div
+    className="child"
+    onClick={[Function]}
+  >
+    <h3>
+       
+      Note A
+      ...
+    </h3>
+    <p>
+      What a wonderful React Monday
+      ...
+    </p>
+    <p>
+      Tags: 
+      <em>
+        learning
+        ...
+      </em>
+    </p>
+  </div>
+  <div>
+    <button
+      className="delete-btn"
+      onClick={[Function]}
+    >
+      ×
+    </button>
+  </div>
+</div>
+`;

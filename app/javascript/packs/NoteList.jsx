@@ -21,6 +21,5 @@ class NoteList extends React.Component{
         </div>
     )
   }
-
 }
 export default NoteList;
