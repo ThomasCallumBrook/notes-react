@@ -9,6 +9,32 @@
     "react-dom": "^16.3.2"
   },
   "devDependencies": {
+    "babel-jest": "^22.4.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "jest": "^22.4.3",
+    "jest-enzyme": "^6.0.0",
+    "regenerator-runtime": "^0.11.1",
+    "sinon": "^5.0.7",
     "webpack-dev-server": "2.11.2"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "jest": {
+    "roots": [
+      "spec/js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript/packs",
+      "app/javascript/components"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/spec/js/__mocks__/fileMock.js",
+      "\\.(scss|css|less)$": "<rootDir>/spec/js/__mocks__/styleMock.js"
+    }
   }
 }

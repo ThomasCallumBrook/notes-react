@@ -6,36 +6,33 @@
 #page{
   display: grid;
   grid-template-columns: 250px auto;
-  grid-template-rows: auto;
+  grid-template-rows: 100vh;
   grid-template-areas:
   "NoteList NoteArea";
   position: absolute;
   height:100vh;
   width: 100vw;
 }
-#note{
-  grid-area: NoteArea;
-  background-color: #550000;
-  color: #D46A6A;
-  overflow: auto;
-  width:auto;
-  height: 100vh;
-}
+
 #note-list{
   grid-area: NoteList;
   background-color: #AA3939;
   color: #FFAAAA;
-  overflow: auto;
+  overflow-y: scroll;
   width: 250px;
   height: 100vh;
-
+  padding-right: 100px
 }
+
 .noteSummary{
   background-color: #801515;
-  margin:10px 5px;
+  margin:10px 10px;
+  margin-right: 0;
   padding: 5px;
   border-radius: 5px;
-  cursor: pointer
+  .child{
+    cursor: pointer;
+  }
 }
 input {
   margin:5px 10px;
@@ -47,11 +44,109 @@ input {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.3em;
+  font-size: 2em;
   position:relative;
   left: 205px;
   display: inline-block;
   &:hover{
     color: #FFAAAA;
   }
+}
+#new-note-form{
+  grid-area: NewNote;
+  height: 200px;
+  background-color: #550000;
+}
+.form-wrapper{
+  background-color: rgba(255,255,255,0.6);
+  height:190px;
+  margin:0 10px;
+  border-radius: 5px;
+}
+.note-form-input{
+  display: block;
+  margin: 10px 10px;
+  padding: 10px;
+  width: calc(100% - 40px);
+  height: 100px;
+  border: none;
+  border-radius: 5px;
+  resize: none;
+}
+#note{
+  grid-area: NoteArea;
+  background-color: #550000;
+  color: #D46A6A;
+  overflow: auto;
+  overflow-x: hidden;
+  width: calc(100vw - 260px);
+  height: 100vh;
+  display:grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100px 35px calc(100vh - 185px) 50px;
+  grid-template-areas:
+  "Title Title"
+  "Tags Tags"
+  "Content Content"
+  "New Save";
+}
+.current{
+  background: none;
+  border:none;
+  border-radius: 5px;
+  color:inherit;
+}
+#note-title{
+  margin:10px 20px;
+  grid-area: Title;
+  font-size: 6rem;
+  align-self: center;
+  text-align: center;
+  width: calc(100vw - 290px);
+  &:hover{
+    background-color: rgba(255,255,255,0.2)
+  }
+}
+#note-tags{
+  grid-area: Tags;
+  margin: 10px 40px;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-style: italic;
+  align-self: start;
+  width: calc(100vw - 330px);
+  &:hover{
+    background-color: rgba(255,255,255,0.2)
+  }
+}
+#note-content{
+  grid-area: Content;
+  margin:10px 20px;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  width: calc(100vw - 300px);
+  height: auto;
+  overflow: visible;
+  resize: none;
+  padding: 5px;
+  padding-right: 100px;
+  &:hover{
+    background-color: rgba(255,255,255,0.2)
+  }
+}
+.btn{
+  grid-area: Save;
+  align-self: start;
+  justify-self: start;
+  height: 40px;
+  width:60px;
+  position: relative;
+  margin-right: 10px;
+  &:hover{
+    color: orange;
+  }
+}
+.new{
+  grid-area: New;
+  justify-self: end;
 }
